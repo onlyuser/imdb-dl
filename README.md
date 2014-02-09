@@ -6,15 +6,14 @@ Copyright (C) 2011-2013 Jerry Chen <mailto:onlyuser@gmail.com>
 About:
 ------
 
-imdb-dl is a bash script for querying IMDB film ratings.
+imdb-dl is a script to query IMDB film ratings.
 
 Requirements:
 -------------
 
 * bash
 * curl
-* tor
-* http://rottentomatoes.com
+* http://www.imdb.com
 
 Installation (Debian):
 ----------------------
