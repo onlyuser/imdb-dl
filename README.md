@@ -32,4 +32,4 @@ imdb-dl &lt;FILM_TITLE&gt;
 Keywords:
 ---------
 
-    How to query IMDB film reviews?
+    How to query IMDB film ratings?
