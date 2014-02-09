@@ -6,7 +6,7 @@ Copyright (C) 2011-2013 Jerry Chen <mailto:onlyuser@gmail.com>
 About:
 ------
 
-imdb-dl.sh is a bash script for querying IMDB film ratings.
+imdb-dl is a bash script for querying IMDB film ratings.
 
 Requirements:
 -------------
