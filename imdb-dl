@@ -24,17 +24,17 @@ DOMAIN='www.imdb.com'
 #URL="http://$DOMAIN/find?q=`echo $QUERY | tr ' ' '+'`"
 URL="http://$DOMAIN/search/title?title=`echo $QUERY | sed 's/ /%20/g'`&title_type=feature"
 echo ""
-echo "Extracting review URL from.. ==> $URL"
+echo "Extracting ratings URL from.. ==> $URL"
 
 EXTRACTED_URL=`curl $URL                                                            | # download HTML using curl
         tr '[:upper:]' '[:lower:]'                                                  | # convert to lowercase
         tr -d '\n'                                                                  | # remove carriage returns
         sed 's#</#\n</#g'                                                           | # tokenize by HTML tag
         grep "/title/.* title=\".*$QUERY.*\""                                       | # locate lines with "/title/" and "title=\"$QUERY\""
-        sed 's#^.*href="\([^\"]*\)" title="\([^\"]*\) (\([0-9?]*\))".*$#\3|\2|\1#g' | # capture film year, title, and review URL
+        sed 's#^.*href="\([^\"]*\)" title="\([^\"]*\) (\([0-9?]*\))".*$#\3|\2|\1#g' | # capture film year, title, and ratings URL
         sort | uniq`
 echo ""
-echo -e "Downloading reviews for:\n`echo \"$EXTRACTED_URL\" | cut -d'|' -f1,2 | xargs -I@ echo - @`"
+echo -e "Downloading ratings for:\n`echo \"$EXTRACTED_URL\" | cut -d'|' -f1,2 | xargs -I@ echo - @`"
 
 echo ""
 while read LINE; do
