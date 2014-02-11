@@ -32,6 +32,8 @@ EXTRACTED_URL=`curl $URL                                                        
         sed 's#</#\n</#g'                                                           | # tokenize by HTML tag
         grep "/title/.* title=\".*$QUERY.*\""                                       | # locate lines with "/title/" and "title=\"$QUERY\""
         sed 's#^.*href="\([^\"]*\)" title="\([^\"]*\) (\([0-9?]*\))".*$#\3|\2|\1#g' | # capture film year, title, and ratings URL
+        sed 's/&#x27;//g'                                                           | # remove apostrophes
+        sed 's/&#x26;/\&/g'                                                         | # replace "&#x26;" --> &
         sort | uniq`
 echo ""
 echo -e "Downloading ratings for:\n`echo \"$EXTRACTED_URL\" | cut -d'|' -f1,2 | xargs -I@ echo - @`"
