@@ -11,9 +11,7 @@ imdb-dl is a script to query IMDB film ratings.
 Requirements:
 -------------
 
-* bash
-* curl
-* http://www.imdb.com
+    bash curl http://www.imdb.com
 
 Installation (Debian):
 ----------------------
